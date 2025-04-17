@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import { Card } from "@/components/ui/card";
 import { Section } from "./Section";
 import { Code, Gamepad2, Home, LucideIcon, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const Status = () => {
   return (
@@ -53,15 +53,15 @@ const SIDE_PROJECTS: SideProjectProps[] = [
   },
   {
     Logo: Code,
-    title: "Romain.com",
-    description: "My personal website",
-    url: "https://romain.com",
+    title: "Portfolio",
+    description: "This website showcasing my work",
+    url: "/",
   },
   {
     Logo: MessageCircle,
-    title: "Romain.com",
-    description: "My personal website",
-    url: "https://romain.com",
+    title: "Chat App",
+    description: "A real-time messaging application",
+    url: "https://github.com/MrFruchard/", // Update with actual URL when available
   },
 ];
 
@@ -109,11 +109,15 @@ const Work = (props: WorkProps) => {
       href={props.url}
       className="no-underline inline-flex gap-4 items-center hover:bg-accent/50 transition-colors p-1 rounded"
     >
-      <img
-        src={props.image}
-        alt={props.title}
-        className="w-10 h-10 object-contain rounded-md"
-      />
+      <div className="relative w-10 h-10 rounded-md overflow-hidden">
+        <Image
+          src={props.image}
+          alt={props.title}
+          width={40}
+          height={40}
+          className="object-contain"
+        />
+      </div>
       <div>
         <div className="flex items-center gap-2">
           <p className="text-lg font-semibold">{props.title}</p>

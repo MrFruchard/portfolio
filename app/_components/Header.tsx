@@ -23,28 +23,32 @@ export const Header = () => {
                 className: "size-6 p-0",
               })
             )}
+            aria-label="LinkedIn profile"
           >
             <LinkedinIcon size={12} className="text-foreground" />
           </Link>
           <Link
             href="https://github.com/MrFruchard"
+            target="_blank"
             className={cn(
               buttonVariants({
                 variant: "outline",
                 className: "size-6 p-0",
               })
             )}
+            aria-label="GitHub profile"
           >
             <GithubIcon size={12} className="text-foreground" />
           </Link>
           <Link
-            href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJfnbBqFsgxQntHGmMpZlvGrlRmGKPSFbFfPHSrszlBzJsmGwqpHFnVwFHPqKFxHVVtGJxV"
+            href="mailto:romainsavary1@gmail.com"
             className={cn(
               buttonVariants({
                 variant: "outline",
                 className: "size-6 p-0",
               })
             )}
+            aria-label="Email me"
           >
             <GmailIcon size={12} className="text-foreground" />
           </Link>

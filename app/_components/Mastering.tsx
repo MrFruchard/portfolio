@@ -63,8 +63,9 @@ const DynamicIconCloud = () => {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    height: "100%",
-    padding: "1px",
+    height: "300px", // Fixed height for better visual appeal
+    padding: "1rem",
+    marginBottom: "2rem",
   };
 
   // Options du Cloud
@@ -79,7 +80,7 @@ const DynamicIconCloud = () => {
   };
 
   if (!mounted) {
-    return <div style={containerStyle}>Chargement...</div>;
+    return <div style={containerStyle} className="animate-pulse">Chargement...</div>;
   }
 
   return (
