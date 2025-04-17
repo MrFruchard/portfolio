@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { LinkedinIcon } from "./icons/LinkedinIcon";
 import Link from "next/link";
 import { Zone01Icon } from "./icons/Zone01Icon";
+import Image from "next/image";
 
 const Code = ({ className, ...props }: ComponentPropsWithoutRef<"span">) => {
   return (
@@ -71,12 +72,17 @@ export const Hero = () => {
           </p>
         </div>
       </div>
-      <div className="flex-[2] max-lg:w-full max-md:m-auto ml-auto">
-        <img
-          src="https://media.licdn.com/dms/image/v2/D4E03AQHY9PEL0TE2dQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1720985472893?e=1744848000&v=beta&t=aNE9z1xwoR1dNE5JpxiVelk8DrjiPLuPSkkUSDj_rWk"
-          className="w-full h-auto rounded-full shadow-lg aspect-square object-cover max-ms:w-48"
-          alt="Romain's picture"
-        />
+      <div className="flex-[2] max-lg:w-full max-md:m-auto ml-auto relative">
+        <div className="w-full aspect-square relative overflow-hidden rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Image
+            src="/icons/photoR.png"
+            alt="Romain's picture"
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            priority
+            className="object-cover"
+          />
+        </div>
       </div>
     </Section>
   );
