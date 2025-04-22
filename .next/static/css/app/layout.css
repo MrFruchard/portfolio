@@ -587,9 +587,6 @@ video {
 .h-9 {
   height: 2.25rem;
 }
-.h-auto {
-  height: auto;
-}
 .h-full {
   height: 100%;
 }
@@ -616,6 +613,15 @@ video {
 }
 .flex-\[3\.3\] {
   flex: 3.3;
+}
+@keyframes pulse {
+
+  50% {
+    opacity: .5;
+  }
+}
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -1013,6 +1019,10 @@ body {
 
 
 @media (min-width: 1024px) {
+
+  .lg\:h-16 {
+    height: 4rem;
+  }
 
   .lg\:h-32 {
     height: 8rem;
