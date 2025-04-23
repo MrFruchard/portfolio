@@ -1,4 +1,4 @@
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { LinkedinIcon } from "./icons/LinkedinIcon";
 import { Section } from "@/app/_components/Section";
 import Link from "next/link";

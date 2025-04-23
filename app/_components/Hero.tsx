@@ -28,10 +28,10 @@ export const Hero = () => {
         </h3>
         <div className="text-md leading-relaxed space-y-3 text-muted-foreground">
           <p>
-            Fort de 7 ans d'expérience en management et pilotage de projets,
-            j'ai dirigé des équipes jusqu'à 15 personnes. Aujourd'hui, je me
-            reconvertis dans le développement pour apporter cette vision
-            business au monde tech.
+            Fort de 7 ans d&apos;expérience en management et pilotage de
+            projets, j&apos;ai dirigé des équipes jusqu&apos;à 15 personnes.
+            Aujourd&apos;hui, je me reconvertis dans le développement pour
+            apporter cette vision business au monde tech.
           </p>
           <p>
             Actuellement en formation intensive backend à
@@ -55,8 +55,8 @@ export const Hero = () => {
             partie de ma formation.
           </p>
           <p>
-            Passionné d'apprentissage continu et orienté solutions, je recherche
-            activement des opportunités d'alternance. Voici mon
+            Passionné d&apos;apprentissage continu et orienté solutions, je
+            recherche activement des opportunités d&apos;alternance. Voici mon
             <span className="whitespace-nowrap">
               {" "}
               <Link

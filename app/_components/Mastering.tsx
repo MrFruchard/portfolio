@@ -1,12 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  Cloud,
-  renderSimpleIcon,
-  fetchSimpleIcons,
-  SimpleIcon,
-} from "react-icon-cloud";
+import { Cloud, renderSimpleIcon, fetchSimpleIcons } from "react-icon-cloud";
 import { JSX } from "react/jsx-runtime";
 
 const DynamicIconCloud = () => {
@@ -46,7 +41,7 @@ const DynamicIconCloud = () => {
               href: undefined,
               target: undefined,
               rel: undefined,
-              onClick: (e: any) => e.preventDefault(),
+              onClick: (e: React.MouseEvent) => e.preventDefault(),
             },
           })
         );
@@ -55,7 +50,7 @@ const DynamicIconCloud = () => {
     };
 
     loadIcons();
-  }, []);
+  }, [slugs]);
 
   // Style pour centrer le Cloud
   const containerStyle = {
@@ -80,7 +75,11 @@ const DynamicIconCloud = () => {
   };
 
   if (!mounted) {
-    return <div style={containerStyle} className="animate-pulse">Chargement...</div>;
+    return (
+      <div style={containerStyle} className="animate-pulse">
+        Chargement...
+      </div>
+    );
   }
 
   return (
