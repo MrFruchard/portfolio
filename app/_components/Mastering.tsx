@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { Cloud, renderSimpleIcon, fetchSimpleIcons } from "react-icon-cloud";
 import { JSX } from "react/jsx-runtime";
 
@@ -8,24 +8,28 @@ const DynamicIconCloud = () => {
   const [mounted, setMounted] = React.useState(false);
   const [renderedIcons, setRenderedIcons] = React.useState<JSX.Element[]>([]);
 
-  const slugs = [
-    "typescript",
-    "tailwindcss",
-    "javascript",
-    "react",
-    "go",
-    "html5",
-    "css3",
-    "nextdotjs",
-    "graphql",
-    "vercel",
-    "docker",
-    "git",
-    "github",
-    "visualstudiocode",
-    "gitea",
-    "jetbrains",
-  ];
+  // Utilisez useMemo pour éviter que slugs ne change à chaque rendu
+  const slugs = useMemo(
+    () => [
+      "typescript",
+      "tailwindcss",
+      "javascript",
+      "react",
+      "go",
+      "html5",
+      "css3",
+      "nextdotjs",
+      "graphql",
+      "vercel",
+      "docker",
+      "git",
+      "github",
+      "visualstudiocode",
+      "gitea",
+      "jetbrains",
+    ],
+    []
+  ); // tableau de dépendances vide signifie que ce tableau sera calculé une seule fois
 
   React.useEffect(() => {
     setMounted(true);

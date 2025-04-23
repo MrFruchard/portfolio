@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Section } from "./Section";
-import { Code, Gamepad2, Home, LucideIcon, MessageCircle } from "lucide-react";
+import { Code, Gamepad2, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -97,7 +97,7 @@ type WorkProps = {
   url: string;
 };
 type SideProjectProps = {
-  Logo: LucideIcon;
+  Logo: React.ElementType;
   title: string;
   description: string;
   url: string;
