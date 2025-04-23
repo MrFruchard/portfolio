@@ -74,7 +74,7 @@ const DynamicIconCloud = () => {
     minSpeed: 0.02,
     direction: 135,
     keep: true,
-    outlineMethod: "none" as "none", // Cast explicite à l'un des types littéraux acceptés
+    outlineMethod: "none" as const, // Cast explicite à l'un des types littéraux acceptés
     outlineColour: "transparent",
   };
 
