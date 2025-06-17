@@ -6,11 +6,11 @@ import Image from "next/image";
 
 export const Status = () => {
   return (
-    <Section className="flex max-md:flex-col items-start gap-6 py-8 w-full">
-      <Card className="flex-[1.5] w-full p-4 flex flex-col gap-2 w-full">
-        <p className="text-lg w-full text-muted-foreground">
-          Side, Fun projects
-        </p>
+    <Section className="flex max-md:flex-col items-start gap-8 py-12 w-full">
+      <Card className="flex-[1.5] w-full p-6 flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300">
+        <h3 className="text-xl font-semibold text-foreground mb-2">
+          Projets Personnels
+        </h3>
         <div className="flex flex-col gap-4">
           {SIDE_PROJECTS.map((project, index) => (
             <SideProject
@@ -24,8 +24,8 @@ export const Status = () => {
         </div>
       </Card>
       <div className="flex-1 w-full h-full flex flex-col gap-4">
-        <Card className="p-2 flex-2">
-          <p className="text-lg w-full text-muted-foreground">Works </p>
+        <Card className="p-6 flex-2 hover:shadow-lg transition-shadow duration-300">
+          <h3 className="text-xl font-semibold text-foreground mb-4">Expériences</h3>
           <div className="flex flex-col gap-2">
             {WORKS.map((work, index) => (
               <Work
@@ -107,7 +107,7 @@ const Work = (props: WorkProps) => {
   return (
     <Link
       href={props.url}
-      className="no-underline inline-flex gap-4 items-center hover:bg-accent/50 transition-colors p-1 rounded"
+      className="no-underline inline-flex gap-4 items-center hover:bg-accent/30 transition-all duration-200 p-3 rounded-lg hover:scale-[1.02]"
     >
       <div className="relative w-10 h-10 rounded-md overflow-hidden">
         <Image
@@ -135,7 +135,7 @@ const SideProject = (props: SideProjectProps) => {
   return (
     <Link
       href={props.url}
-      className="no-underline inline-flex gap-4 items-center hover:bg-accent/50 transition-colors p-1 rounded"
+      className="no-underline inline-flex gap-4 items-center hover:bg-accent/30 transition-all duration-200 p-3 rounded-lg hover:scale-[1.02]"
     >
       <span className="bg-accent text-accent-foreground p-3 rounded-sm">
         <props.Logo size={16} />

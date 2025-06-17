@@ -62,8 +62,8 @@ const DynamicIconCloud = () => {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    height: "300px", // Fixed height for better visual appeal
-    padding: "1rem",
+    height: "400px",
+    padding: "2rem",
     marginBottom: "2rem",
   };
 

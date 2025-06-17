@@ -12,20 +12,20 @@ export const Header = () => {
       <Section className="flex items-baseline">
         <h1 className="text-lg font-bold text-primary">Romain.com</h1>
         <div className="flex-1" />
-        <ul className="flex items-center gap-2">
-          Contact me on{" "}
+        <nav className="flex items-center gap-3">
           <Link
             href="https://www.linkedin.com/in/romain-savary1"
             target="_blank"
             className={cn(
               buttonVariants({
                 variant: "outline",
-                className: "size-6 p-0",
-              })
+                size: "sm",
+              }),
+              "hover:scale-105 transition-transform duration-200"
             )}
             aria-label="LinkedIn profile"
           >
-            <LinkedinIcon size={12} className="text-foreground" />
+            <LinkedinIcon size={16} className="text-foreground" />
           </Link>
           <Link
             href="https://github.com/MrFruchard"
@@ -33,26 +33,28 @@ export const Header = () => {
             className={cn(
               buttonVariants({
                 variant: "outline",
-                className: "size-6 p-0",
-              })
+                size: "sm",
+              }),
+              "hover:scale-105 transition-transform duration-200"
             )}
             aria-label="GitHub profile"
           >
-            <GithubIcon size={12} className="text-foreground" />
+            <GithubIcon size={16} className="text-foreground" />
           </Link>
           <Link
             href="mailto:romainsavary1@gmail.com"
             className={cn(
               buttonVariants({
                 variant: "outline",
-                className: "size-6 p-0",
-              })
+                size: "sm",
+              }),
+              "hover:scale-105 transition-transform duration-200"
             )}
             aria-label="Email me"
           >
-            <GmailIcon size={12} className="text-foreground" />
+            <GmailIcon size={16} className="text-foreground" />
           </Link>
-        </ul>
+        </nav>
       </Section>
     </header>
   );

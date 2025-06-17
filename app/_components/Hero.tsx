@@ -20,67 +20,65 @@ const Code = ({ className, ...props }: ComponentPropsWithoutRef<"span">) => {
 
 export const Hero = () => {
   return (
-    <Section className="flex max-lg:flex-col items-start gap-6 py-8">
-      <div className="flex-[3.3] w-full space-y-4">
-        <h2 className="text-5xl font-bold">Romain Savary</h2>
-        <h3 className="text-2xl font-caption text-muted-foreground">
-          FullStack Developer | Spécialisation Cyber-sécurité
-        </h3>
-        <div className="text-md leading-relaxed space-y-3 text-muted-foreground">
-          <p>
-            Fort de 7 ans d&apos;expérience en management et pilotage de
-            projets, j&apos;ai dirigé des équipes jusqu&apos;à 15 personnes.
-            Aujourd&apos;hui, je me reconvertis dans le développement pour
-            apporter cette vision business au monde tech.
+    <Section className="flex max-lg:flex-col items-start gap-8 py-12">
+      <div className="flex-[3] w-full space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Romain Savary
+          </h2>
+          <h3 className="text-xl md:text-2xl font-medium text-muted-foreground">
+            FullStack Developer | Spécialisation Cyber-sécurité
+          </h3>
+        </div>
+        <div className="text-base leading-relaxed space-y-4 text-muted-foreground max-w-2xl">
+          <p className="text-lg">
+            <strong>7 ans d&apos;expérience</strong> en management et pilotage de projets, 
+            avec des équipes jusqu&apos;à 15 personnes. Aujourd&apos;hui en reconversion 
+            pour apporter cette vision business au monde tech.
           </p>
           <p>
-            Actuellement en formation intensive backend à
-            <span className="whitespace-nowrap">
-              {" "}
-              <Link
-                href="https://zone01rouennormandie.org/"
-                className="no-underline"
-              >
-                <Code className="items-center cursor-pointer">
-                  <Zone01Icon
-                    size={35}
-                    className="inline text-blue-500 mr-[-14px]"
-                  />
-                  Zone01
-                </Code>
-              </Link>
+            Actuellement en formation intensive backend à{" "}
+            <Link
+              href="https://zone01rouennormandie.org/"
+              className="no-underline"
+            >
+              <Code className="items-center cursor-pointer hover:scale-105 transition-transform">
+                <Zone01Icon
+                  size={24}
+                  className="inline text-blue-500 mr-1"
+                />
+                Zone01
+              </Code>
+            </Link>
+            , je développe mes compétences en{" "}
+            <span className="font-medium text-foreground">
+              HTML, CSS, JavaScript, Go et SQL
             </span>
-            , je développe mes compétences en HTML, CSS, JavaScript, Go et SQL,
-            avec une spécialisation en cyber-sécurité prévue pour la dernière
-            partie de ma formation.
+            , avec une spécialisation en cyber-sécurité.
           </p>
           <p>
-            Passionné d&apos;apprentissage continu et orienté solutions, je
-            recherche activement des opportunités d&apos;alternance. Voici mon
-            <span className="whitespace-nowrap">
-              {" "}
-              <Link
-                href="https://www.linkedin.com/in/romain-savary1"
-                className="no-underline"
-              >
-                <Code className="items-center gap-2 cursor-pointer">
-                  <LinkedinIcon size={15} className="inline" />
-                  LinkedIn!
-                </Code>
-              </Link>
-            </span>
+            Passionné d&apos;apprentissage continu, je recherche des opportunités d&apos;alternance.{" "}
+            <Link
+              href="https://www.linkedin.com/in/romain-savary1"
+              className="no-underline"
+            >
+              <Code className="items-center gap-2 cursor-pointer hover:scale-105 transition-transform">
+                <LinkedinIcon size={16} className="inline" />
+                Contactez-moi
+              </Code>
+            </Link>
           </p>
         </div>
       </div>
       <div className="flex-[2] max-lg:w-full max-md:m-auto ml-auto relative">
-        <div className="w-full aspect-square relative overflow-hidden rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div className="w-64 h-64 md:w-80 md:h-80 mx-auto relative overflow-hidden rounded-full shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 ring-4 ring-accent/20">
           <Image
             src="/icons/photoR.png"
-            alt="Romain's picture"
+            alt="Romain Savary - Développeur FullStack"
             fill
-            sizes="(max-width: 768px) 100vw, 33vw"
+            sizes="(max-width: 768px) 256px, 320px"
             priority
-            className="object-cover"
+            className="object-cover transition-transform duration-500 hover:scale-110"
           />
         </div>
       </div>
