@@ -103,7 +103,7 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold text-white mb-3">À propos</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                <strong className="text-white">7 ans d'expérience</strong> en management d'équipes jusqu'à 15 personnes. 
+                <strong className="text-white">7 ans d&apos;expérience</strong> en management d&apos;équipes jusqu&apos;à 15 personnes. 
                 En reconversion dans le développement pour allier vision business et compétences techniques.
               </p>
             </div>
