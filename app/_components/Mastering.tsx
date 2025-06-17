@@ -62,9 +62,9 @@ const DynamicIconCloud = () => {
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    height: "400px",
-    padding: "2rem",
-    marginBottom: "2rem",
+    height: "100%",
+    padding: "0",
+    margin: "0",
   };
 
   // Options du Cloud
