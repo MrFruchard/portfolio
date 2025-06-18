@@ -1,3 +1,4 @@
+
 "use client";
 
 import { LoadingAnimation } from "./_components/LoadingAnimation";
@@ -6,20 +7,41 @@ import { LinkedinIcon } from "./_components/icons/LinkedinIcon";
 import { GithubIcon } from "./_components/icons/GithubIcon";
 import { GmailIcon } from "./_components/icons/GmailIcon";
 import { Zone01Icon } from "./_components/icons/Zone01Icon";
-import { Code, Gamepad2, MessageCircle, MapPin, Calendar, User } from "lucide-react";
+import { Code, Gamepad2, MessageCircle, MapPin, Calendar, User, Camera, UtensilsCrossed, Plane } from "lucide-react";
+import { 
+  SiTypescript, 
+  SiJavascript, 
+  SiReact, 
+  SiNextdotjs, 
+  SiGo, 
+  SiHtml5, 
+  SiCss3, 
+  SiTailwindcss, 
+  SiDocker, 
+  SiGit,
+  SiVercel 
+} from "react-icons/si";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
   const [showLoading, setShowLoading] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [visibleCards, setVisibleCards] = useState<number[]>([]);
 
   const handleLoadingComplete = () => {
     setShowLoading(false);
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
+    
+    // Animation aléatoire des cartes
+    const cardIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // 9 cartes
+    const shuffledIndexes = [...cardIndexes].sort(() => Math.random() - 0.5);
+    const cardDelays = [200, 600, 1000, 1400, 1800, 2200, 2600, 3000, 3400]; // 9 cartes sur 3.4 secondes
+    
+    cardDelays.forEach((delay, i) => {
+      setTimeout(() => {
+        setVisibleCards(prev => [...prev, shuffledIndexes[i]]);
+      }, delay);
+    });
   };
 
   if (showLoading) {
@@ -27,14 +49,12 @@ export default function Home() {
   }
 
   return (
-    <main className={`min-h-screen bg-background p-4 transition-all duration-1000 ${
-      isLoaded ? 'opacity-100' : 'opacity-0'
-    }`}>
-      <BentoGrid className="max-w-7xl mx-auto grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
+    <main className="h-screen bg-background p-4 transition-all duration-1000 overflow-hidden opacity-100">
+      <BentoGrid className="max-w-none grid-cols-12 grid-rows-4 gap-4 h-full">
         
         {/* Header avec nom et photo */}
-        <BentoCard className={`md:col-span-4 lg:col-span-3 transition-all duration-700 delay-100 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        <BentoCard className={`col-span-4 row-span-1 transition-all duration-1000 ease-out ${
+          visibleCards.includes(0) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <div className="flex items-center gap-8">
             <div className="relative w-28 h-28 rounded-full overflow-hidden ring-2 ring-white/10">
@@ -57,8 +77,8 @@ export default function Home() {
         </BentoCard>
 
         {/* Status - Disponible */}
-        <BentoCard className={`md:col-span-2 lg:col-span-1 transition-all duration-700 delay-150 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        <BentoCard className={`col-span-2 row-span-1 transition-all duration-1000 ease-out ${
+          visibleCards.includes(1) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <div className="text-center">
             <div className="w-3 h-3 bg-green-400 rounded-full mx-auto mb-2 animate-pulse"></div>
@@ -67,9 +87,25 @@ export default function Home() {
           </div>
         </BentoCard>
 
+        {/* À propos */}
+        <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
+          visibleCards.includes(2) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
+        }`}>
+          <div className="flex items-start gap-3">
+            <User size={24} className="text-blue-400 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-3">À propos</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-white">7 ans d&apos;expérience</strong> en management d&apos;équipes jusqu&apos;à 15 personnes. 
+                En reconversion dans le développement pour allier vision business et compétences techniques.
+              </p>
+            </div>
+          </div>
+        </BentoCard>
+
         {/* Contact */}
-        <BentoCard className={`md:col-span-2 lg:col-span-2 transition-all duration-700 delay-200 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
+          visibleCards.includes(3) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
           <div className="flex gap-3">
@@ -94,32 +130,16 @@ export default function Home() {
           </div>
         </BentoCard>
 
-        {/* À propos */}
-        <BentoCard className={`md:col-span-4 lg:col-span-3 transition-all duration-700 delay-250 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}>
-          <div className="flex items-start gap-3">
-            <User size={24} className="text-blue-400 mt-1" />
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-3">À propos</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                <strong className="text-white">7 ans d&apos;expérience</strong> en management d&apos;équipes jusqu&apos;à 15 personnes. 
-                En reconversion dans le développement pour allier vision business et compétences techniques.
-              </p>
-            </div>
-          </div>
-        </BentoCard>
-
         {/* Formation */}
-        <BentoCard className={`md:col-span-2 lg:col-span-3 transition-all duration-700 delay-300 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
+          visibleCards.includes(4) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <div className="flex items-start gap-3">
             <Zone01Icon size={24} className="text-blue-400 mt-1" />
             <div>
               <h3 className="text-lg font-semibold text-white mb-2">Formation</h3>
               <p className="text-sm text-white font-medium">Zone01 Rouen</p>
-              <p className="text-xs text-muted-foreground mb-2">Formation intensive backend</p>
+              <p className="text-xs text-muted-foreground mb-2">Formation intensive fullstack</p>
               <div className="flex flex-wrap gap-1">
                 {["Go", "JavaScript", "HTML", "CSS", "SQL"].map((tech) => (
                   <span key={tech} className="px-2 py-1 bg-accent/50 rounded text-xs text-white">
@@ -132,36 +152,35 @@ export default function Home() {
         </BentoCard>
 
         {/* Compétences */}
-        <BentoCard className={`md:col-span-2 lg:col-span-3 transition-all duration-700 delay-350 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
+          visibleCards.includes(5) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`} hoverable={false}>
           <h3 className="text-lg font-semibold text-white mb-4">Technologies</h3>
-          <div className="h-48 flex flex-wrap gap-3 items-center justify-center p-4">
-            {[
-              { name: "TypeScript", icon: "🔷", color: "bg-blue-500/20 text-blue-400" },
-              { name: "JavaScript", icon: "🟨", color: "bg-yellow-500/20 text-yellow-400" },
-              { name: "React", icon: "⚛️", color: "bg-cyan-500/20 text-cyan-400" },
-              { name: "Next.js", icon: "▲", color: "bg-white/20 text-white" },
-              { name: "Go", icon: "🐹", color: "bg-cyan-600/20 text-cyan-300" },
-              { name: "HTML5", icon: "🌐", color: "bg-orange-500/20 text-orange-400" },
-              { name: "CSS3", icon: "🎨", color: "bg-blue-600/20 text-blue-300" },
-              { name: "Tailwind", icon: "💨", color: "bg-teal-500/20 text-teal-400" },
-              { name: "Docker", icon: "🐳", color: "bg-blue-400/20 text-blue-300" },
-              { name: "Git", icon: "📝", color: "bg-red-500/20 text-red-400" },
-              { name: "VS Code", icon: "💻", color: "bg-blue-500/20 text-blue-400" },
-              { name: "Vercel", icon: "🚀", color: "bg-white/20 text-white" }
+          <div className="flex flex-wrap gap-2 items-center justify-center p-2">
+{[
+              { name: "TypeScript", icon: <SiTypescript size={16} />, color: "bg-blue-500/20 text-blue-400" },
+              { name: "JavaScript", icon: <SiJavascript size={16} />, color: "bg-yellow-500/20 text-yellow-400" },
+              { name: "React", icon: <SiReact size={16} />, color: "bg-cyan-500/20 text-cyan-400" },
+              { name: "Next.js", icon: <SiNextdotjs size={16} />, color: "bg-white/20 text-white" },
+              { name: "Go", icon: <SiGo size={16} />, color: "bg-cyan-600/20 text-cyan-300" },
+              { name: "HTML5", icon: <SiHtml5 size={16} />, color: "bg-orange-500/20 text-orange-400" },
+              { name: "CSS3", icon: <SiCss3 size={16} />, color: "bg-blue-600/20 text-blue-300" },
+              { name: "Tailwind", icon: <SiTailwindcss size={16} />, color: "bg-teal-500/20 text-teal-400" },
+              { name: "Docker", icon: <SiDocker size={16} />, color: "bg-blue-400/20 text-blue-300" },
+              { name: "Git", icon: <SiGit size={16} />, color: "bg-red-500/20 text-red-400" },
+              { name: "Vercel", icon: <SiVercel size={16} />, color: "bg-white/20 text-white" }
             ].map((tech, index) => (
               <div
                 key={tech.name}
-                className={`px-3 py-2 rounded-lg ${tech.color} backdrop-blur-sm transition-all duration-300 hover:scale-110 animate-pulse`}
+                className={`px-2 py-1 rounded-lg ${tech.color} backdrop-blur-sm transition-all duration-300 hover:scale-110 animate-pulse`}
                 style={{
                   animationDelay: `${index * 200}ms`,
                   animationDuration: '2s'
                 }}
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-lg">{tech.icon}</span>
-                  <span className="text-sm font-medium">{tech.name}</span>
+                <div className="flex items-center gap-1">
+                  {tech.icon}
+                  <span className="text-xs font-medium">{tech.name}</span>
                 </div>
               </div>
             ))}
@@ -169,8 +188,8 @@ export default function Home() {
         </BentoCard>
 
         {/* Projets */}
-        <BentoCard className={`md:col-span-4 lg:col-span-3 transition-all duration-700 delay-400 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        <BentoCard className={`col-span-3 row-span-2 transition-all duration-1000 ease-out ${
+          visibleCards.includes(6) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <h3 className="text-lg font-semibold text-white mb-4">Projets</h3>
           <div className="space-y-3">
@@ -198,9 +217,47 @@ export default function Home() {
           </div>
         </BentoCard>
 
+        {/* Hobbies & Voyages */}
+        <BentoCard className={`col-span-6 row-span-1 transition-all duration-1000 ease-out ${
+          visibleCards.includes(8) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
+        }`}>
+          <div className="flex items-start gap-3">
+            <Plane size={24} className="text-green-400 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-3">Hobbies & Voyages</h3>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Camera size={16} className="text-red-400" />
+                    <span className="text-sm font-medium text-white">Passions</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <span className="px-2 py-1 bg-red-500/20 text-red-400 rounded text-xs">🎬 Cinéma</span>
+                    <span className="px-2 py-1 bg-orange-500/20 text-orange-400 rounded text-xs">🍕 Gastronomie</span>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <UtensilsCrossed size={16} className="text-blue-400" />
+                    <span className="text-sm font-medium text-white">Destinations</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {["🇬🇷 Crète", "🇺🇸 LA-SF", "🇩🇴 Punta Cana", "🇲🇽 Mexique", 
+                      "🇪🇬 Égypte", "🇲🇦 Maroc", "🇵🇹 Porto", "🇮🇸 Islande", "🇮🇹 Venise"].map((destination) => (
+                      <span key={destination} className="px-2 py-1 bg-accent/30 rounded text-xs text-muted-foreground">
+                        {destination}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </BentoCard>
+
         {/* Expérience */}
-        <BentoCard className={`md:col-span-2 lg:col-span-3 transition-all duration-700 delay-450 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
+          visibleCards.includes(7) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <div className="flex items-start gap-3">
             <Calendar size={24} className="text-purple-400 mt-1" />
