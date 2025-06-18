@@ -14,7 +14,7 @@ export const BentoCard = ({ className, children, hoverable = true }: BentoCardPr
   return (
     <Card
       className={cn(
-        "p-6 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-300",
+        "p-3 sm:p-4 lg:p-6 bg-card/50 backdrop-blur-sm border-border/50 transition-all duration-300 text-sm sm:text-base",
         hoverable && "hover:bg-card/80 hover:scale-[1.02] hover:shadow-2xl hover:shadow-white/5",
         className
       )}

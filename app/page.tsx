@@ -49,15 +49,15 @@ export default function Home() {
   }
 
   return (
-    <main className="h-screen bg-background p-4 transition-all duration-1000 overflow-hidden opacity-100">
-      <BentoGrid className="max-w-none grid-cols-12 grid-rows-4 gap-4 h-full">
+    <main className="min-h-screen bg-background p-2 sm:p-4 transition-all duration-1000 opacity-100">
+      <BentoGrid className="max-w-none grid-cols-12 grid-rows-4 gap-2 sm:gap-4 min-h-screen">
         
         {/* Header avec nom et photo */}
         <BentoCard className={`col-span-4 row-span-1 transition-all duration-1000 ease-out ${
           visibleCards.includes(0) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
-          <div className="flex items-center gap-8">
-            <div className="relative w-28 h-28 rounded-full overflow-hidden ring-2 ring-white/10">
+          <div className="flex items-center gap-3 sm:gap-6 lg:gap-8">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 rounded-full overflow-hidden ring-2 ring-white/10">
               <Image
                 src="/icons/photoR.png"
                 alt="Romain Savary"
@@ -66,8 +66,8 @@ export default function Home() {
               />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-white">Romain Savary</h1>
-              <p className="text-lg text-muted-foreground">FullStack Developer</p>
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Romain Savary</h1>
+              <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">FullStack Developer</p>
               <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
                 <MapPin size={14} />
                 <span>Rouen, France</span>
@@ -155,8 +155,8 @@ export default function Home() {
         <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
           visibleCards.includes(5) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`} hoverable={false}>
-          <h3 className="text-lg font-semibold text-white mb-4">Technologies</h3>
-          <div className="flex flex-wrap gap-2 items-center justify-center p-2">
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-4">Technologies</h3>
+          <div className="flex flex-wrap gap-1 sm:gap-2 items-center justify-center p-1 sm:p-2">
 {[
               { name: "TypeScript", icon: <SiTypescript size={16} />, color: "bg-blue-500/20 text-blue-400" },
               { name: "JavaScript", icon: <SiJavascript size={16} />, color: "bg-yellow-500/20 text-yellow-400" },
