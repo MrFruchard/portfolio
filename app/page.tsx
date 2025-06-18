@@ -2,6 +2,7 @@
 "use client";
 
 import { LoadingAnimation } from "./_components/LoadingAnimation";
+import { SearchAnimation } from "./_components/SearchAnimation";
 import { BentoGrid, BentoCard } from "./_components/BentoGrid";
 import { LinkedinIcon } from "./_components/icons/LinkedinIcon";
 import { GithubIcon } from "./_components/icons/GithubIcon";
@@ -84,6 +85,7 @@ export default function Home() {
             <div className="w-3 h-3 bg-green-400 rounded-full mx-auto mb-2 animate-pulse"></div>
             <p className="text-sm font-medium text-white">Disponible</p>
             <p className="text-xs text-muted-foreground">Pour alternance</p>
+            <SearchAnimation />
           </div>
         </BentoCard>
 
