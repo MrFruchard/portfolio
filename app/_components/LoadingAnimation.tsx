@@ -59,7 +59,7 @@ export const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
       fadeOut ? 'opacity-0' : 'opacity-100'
     }`}>
       <div className="text-center">
-        <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           {currentText}
           <span className={`${showCursor && !fadeOut ? 'opacity-100' : 'opacity-0'} transition-opacity duration-200`}>
             |

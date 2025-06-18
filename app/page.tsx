@@ -50,14 +50,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background p-2 sm:p-4 transition-all duration-1000 opacity-100">
-      <BentoGrid className="max-w-none grid-cols-12 grid-rows-4 gap-2 sm:gap-4 min-h-screen">
+      <BentoGrid className="max-w-none grid-cols-1 sm:grid-cols-12 sm:grid-rows-4 gap-2 sm:gap-4 min-h-screen">
         
         {/* Header avec nom et photo */}
-        <BentoCard className={`col-span-4 row-span-1 transition-all duration-1000 ease-out ${
+        <BentoCard className={`sm:col-span-4 sm:row-span-1 transition-all duration-1000 ease-out ${
           visibleCards.includes(0) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
-          <div className="flex items-center gap-3 sm:gap-6 lg:gap-8">
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 rounded-full overflow-hidden ring-2 ring-white/10">
+          <div className="flex flex-col sm:flex-row items-center sm:items-center gap-3 sm:gap-6 lg:gap-8 text-center sm:text-left">
+            <div className="relative w-20 h-20 sm:w-20 sm:h-20 lg:w-28 lg:h-28 rounded-full overflow-hidden ring-2 ring-white/10">
               <Image
                 src="/icons/photoR.png"
                 alt="Romain Savary"
@@ -77,7 +77,7 @@ export default function Home() {
         </BentoCard>
 
         {/* Status - Disponible */}
-        <BentoCard className={`col-span-2 row-span-1 transition-all duration-1000 ease-out ${
+        <BentoCard className={`sm:col-span-2 sm:row-span-1 transition-all duration-1000 ease-out ${
           visibleCards.includes(1) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <div className="text-center">
@@ -88,7 +88,7 @@ export default function Home() {
         </BentoCard>
 
         {/* À propos */}
-        <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
+        <BentoCard className={`sm:col-span-3 sm:row-span-1 transition-all duration-1000 ease-out ${
           visibleCards.includes(2) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <div className="flex items-start gap-3">
@@ -104,7 +104,7 @@ export default function Home() {
         </BentoCard>
 
         {/* Contact */}
-        <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
+        <BentoCard className={`sm:col-span-3 sm:row-span-1 transition-all duration-1000 ease-out ${
           visibleCards.includes(3) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
@@ -131,7 +131,7 @@ export default function Home() {
         </BentoCard>
 
         {/* Formation */}
-        <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
+        <BentoCard className={`sm:col-span-3 sm:row-span-1 transition-all duration-1000 ease-out ${
           visibleCards.includes(4) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <div className="flex items-start gap-3">
@@ -152,7 +152,7 @@ export default function Home() {
         </BentoCard>
 
         {/* Compétences */}
-        <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
+        <BentoCard className={`sm:col-span-3 sm:row-span-1 transition-all duration-1000 ease-out ${
           visibleCards.includes(5) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`} hoverable={false}>
           <h3 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-4">Technologies</h3>
@@ -188,7 +188,7 @@ export default function Home() {
         </BentoCard>
 
         {/* Projets */}
-        <BentoCard className={`col-span-3 row-span-2 transition-all duration-1000 ease-out ${
+        <BentoCard className={`sm:col-span-3 sm:row-span-2 transition-all duration-1000 ease-out ${
           visibleCards.includes(6) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <h3 className="text-lg font-semibold text-white mb-4">Projets</h3>
@@ -218,7 +218,7 @@ export default function Home() {
         </BentoCard>
 
         {/* Hobbies & Voyages */}
-        <BentoCard className={`col-span-6 row-span-1 transition-all duration-1000 ease-out ${
+        <BentoCard className={`sm:col-span-6 sm:row-span-1 transition-all duration-1000 ease-out ${
           visibleCards.includes(8) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <div className="flex items-start gap-3">
@@ -256,7 +256,7 @@ export default function Home() {
         </BentoCard>
 
         {/* Expérience */}
-        <BentoCard className={`col-span-3 row-span-1 transition-all duration-1000 ease-out ${
+        <BentoCard className={`sm:col-span-3 sm:row-span-1 transition-all duration-1000 ease-out ${
           visibleCards.includes(7) ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-95'
         }`}>
           <div className="flex items-start gap-3">
