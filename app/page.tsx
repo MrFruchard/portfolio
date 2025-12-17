@@ -49,13 +49,9 @@ export default function Home() {
     });
   };
 
-  if (showLoading) {
-    return <LoadingAnimation onComplete={handleLoadingComplete} />;
-  }
-
   return (
-    <main className="min-h-screen bg-background p-2 sm:p-4 transition-all duration-1000 opacity-100 relative overflow-hidden">
-      {/* Stars Background */}
+    <>
+      {/* Stars Background - toujours présent */}
       <StarsBackground
         starColor={resolvedTheme === 'dark' ? '#FFF' : '#000'}
         className={cn(
@@ -64,7 +60,11 @@ export default function Home() {
         )}
       />
 
-      <BentoGrid className="max-w-none grid-cols-1 sm:grid-cols-12 sm:grid-rows-4 gap-2 sm:gap-4 min-h-screen relative z-10">
+      {showLoading ? (
+        <LoadingAnimation onComplete={handleLoadingComplete} />
+      ) : (
+        <main className="min-h-screen bg-transparent p-2 sm:p-4 transition-all duration-1000 opacity-100 relative">
+          <BentoGrid className="max-w-none grid-cols-1 sm:grid-cols-12 sm:grid-rows-4 gap-2 sm:gap-4 min-h-screen relative z-10">
         
         {/* Header avec nom et photo */}
         <BentoCard className={`sm:col-span-4 sm:row-span-1 transition-all duration-1000 ease-out ${
@@ -293,6 +293,8 @@ export default function Home() {
         </BentoCard>
 
       </BentoGrid>
-    </main>
+        </main>
+      )}
+    </>
   );
 }

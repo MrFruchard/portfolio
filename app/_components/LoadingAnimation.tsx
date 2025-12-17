@@ -55,7 +55,7 @@ export const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
   }, [currentIndex, currentWord, isFirstWord, onComplete]);
 
   return (
-    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-background transition-opacity duration-1000 ${
+    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-transparent transition-opacity duration-1000 ${
       fadeOut ? 'opacity-0' : 'opacity-100'
     }`}>
       <div className="text-center">
