@@ -9,35 +9,39 @@ import { GithubIcon } from "./_components/icons/GithubIcon";
 import { GmailIcon } from "./_components/icons/GmailIcon";
 import { Zone01Icon } from "./_components/icons/Zone01Icon";
 import { Code, Gamepad2, MessageCircle, MapPin, Calendar, User, Camera, UtensilsCrossed, Plane } from "lucide-react";
-import { 
-  SiTypescript, 
-  SiJavascript, 
-  SiReact, 
-  SiNextdotjs, 
-  SiGo, 
-  SiHtml5, 
-  SiCss3, 
-  SiTailwindcss, 
-  SiDocker, 
+import {
+  SiTypescript,
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiGo,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiDocker,
   SiGit,
-  SiVercel 
+  SiVercel
 } from "react-icons/si";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { StarsBackground } from "@/components/animate-ui/components/backgrounds/stars";
+import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 export default function Home() {
   const [showLoading, setShowLoading] = useState(true);
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
+  const { resolvedTheme } = useTheme();
 
   const handleLoadingComplete = () => {
     setShowLoading(false);
-    
+
     // Animation aléatoire des cartes
     const cardIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8]; // 9 cartes
     const shuffledIndexes = [...cardIndexes].sort(() => Math.random() - 0.5);
     const cardDelays = [200, 600, 1000, 1400, 1800, 2200, 2600, 3000, 3400]; // 9 cartes sur 3.4 secondes
-    
+
     cardDelays.forEach((delay, i) => {
       setTimeout(() => {
         setVisibleCards(prev => [...prev, shuffledIndexes[i]]);
@@ -50,8 +54,17 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-background p-2 sm:p-4 transition-all duration-1000 opacity-100">
-      <BentoGrid className="max-w-none grid-cols-1 sm:grid-cols-12 sm:grid-rows-4 gap-2 sm:gap-4 min-h-screen">
+    <main className="min-h-screen bg-background p-2 sm:p-4 transition-all duration-1000 opacity-100 relative overflow-hidden">
+      {/* Stars Background */}
+      <StarsBackground
+        starColor={resolvedTheme === 'dark' ? '#FFF' : '#000'}
+        className={cn(
+          'fixed inset-0 z-0',
+          'dark:bg-[radial-gradient(ellipse_at_bottom,_#262626_0%,_#000_100%)] bg-[radial-gradient(ellipse_at_bottom,_#f5f5f5_0%,_#fff_100%)]',
+        )}
+      />
+
+      <BentoGrid className="max-w-none grid-cols-1 sm:grid-cols-12 sm:grid-rows-4 gap-2 sm:gap-4 min-h-screen relative z-10">
         
         {/* Header avec nom et photo */}
         <BentoCard className={`sm:col-span-4 sm:row-span-1 transition-all duration-1000 ease-out ${

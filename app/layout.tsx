@@ -3,6 +3,7 @@ import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 import { cn } from "@/lib/utils";
 import { Anek_Telugu } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const AnekTelugu = Anek_Telugu({
   subsets: ["latin"],
@@ -21,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={"h-full"}>
+    <html lang="en" className={"h-full"} suppressHydrationWarning>
       <body
         className={cn(
           GeistSans.variable,
@@ -29,7 +30,14 @@ export default function RootLayout({
           "font-sans h-full bg-background text-foreground"
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
