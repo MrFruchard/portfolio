@@ -81,7 +81,7 @@ export default function Home() {
             </div>
             <div>
               <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Romain Savary</h1>
-              <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">FullStack Developer</p>
+              <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">Concepteur Développeur d'Applications</p>
               <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
                 <MapPin size={14} />
                 <span>Rouen, France</span>
@@ -97,7 +97,7 @@ export default function Home() {
           <div className="text-center">
             <div className="w-3 h-3 bg-green-400 rounded-full mx-auto mb-2 animate-pulse"></div>
             <p className="text-sm font-medium text-white">Disponible</p>
-            <p className="text-xs text-muted-foreground">Pour alternance</p>
+            <p className="text-xs text-muted-foreground">Chef de Projet IT — juin 2026</p>
             <SearchAnimation />
           </div>
         </BentoCard>
@@ -111,8 +111,8 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold text-white mb-3">À propos</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                <strong className="text-white">7 ans d&apos;expérience</strong> en management d&apos;équipes jusqu&apos;à 15 personnes. 
-                En reconversion dans le développement pour allier vision business et compétences techniques.
+                <strong className="text-white">10 ans en management commercial</strong> (Carrefour, BUT), équipes jusqu&apos;à 15 personnes.
+                En fin de CDA à Zone01 Normandie, futur Chef de Projet IT chez Klian dès juin 2026.
               </p>
             </div>
           </div>
@@ -137,7 +137,7 @@ export default function Home() {
               <GithubIcon size={20} className="text-white" />
             </Link>
             <Link
-              href="mailto:romainsavary1@gmail.com"
+              href="mailto:romain.savary2@gmail.com"
               className="p-3 bg-accent rounded-lg hover:bg-accent/80 transition-colors"
             >
               <GmailIcon size={20} className="text-white" />
@@ -153,8 +153,8 @@ export default function Home() {
             <Zone01Icon size={24} className="text-blue-400 mt-1" />
             <div>
               <h3 className="text-lg font-semibold text-white mb-2">Formation</h3>
-              <p className="text-sm text-white font-medium">Zone01 Rouen</p>
-              <p className="text-xs text-muted-foreground mb-2">Formation intensive fullstack</p>
+              <p className="text-sm text-white font-medium">Zone01 Normandie — CDA Bac+3 (2024–2026)</p>
+              <p className="text-xs text-muted-foreground mb-2">Chef de Projet IT Bac+5 — Klian (dès juin 2026)</p>
               <div className="flex flex-wrap gap-1">
                 {["Go", "JavaScript", "HTML", "CSS", "SQL"].map((tech) => (
                   <span key={tech} className="px-2 py-1 bg-accent/50 rounded text-xs text-white">
@@ -208,6 +208,13 @@ export default function Home() {
         }`}>
           <h3 className="text-lg font-semibold text-white mb-4">Projets</h3>
           <div className="space-y-3">
+            <Link href="https://github.com/MrFruchard/pulse" className="flex items-center gap-3 p-3 bg-accent/30 rounded-lg hover:bg-accent/50 transition-colors">
+              <MessageCircle size={20} className="text-pink-400" />
+              <div>
+                <p className="text-sm font-medium text-white">Pulse</p>
+                <p className="text-xs text-muted-foreground">Réseau social à fenêtre temporelle — Go · Next.js · WebSocket</p>
+              </div>
+            </Link>
             <Link href="https://make-your-game-plum.vercel.app/" className="flex items-center gap-3 p-3 bg-accent/30 rounded-lg hover:bg-accent/50 transition-colors">
               <Gamepad2 size={20} className="text-orange-400" />
               <div>
@@ -220,13 +227,6 @@ export default function Home() {
               <div>
                 <p className="text-sm font-medium text-white">Portfolio</p>
                 <p className="text-xs text-muted-foreground">Site vitrine en Next.js</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 p-3 bg-accent/30 rounded-lg">
-              <MessageCircle size={20} className="text-green-400" />
-              <div>
-                <p className="text-sm font-medium text-white">Chat App</p>
-                <p className="text-xs text-muted-foreground">Application de messagerie temps réel</p>
               </div>
             </div>
           </div>
